@@ -1,0 +1,56 @@
+<!-- Creating custom components -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p.textCenter {
+            text-align: center;
+            background-color: rgb(94, 216, 224)
+        }
+
+        p.textdir {
+            text-align: right;
+            background-color: rgb(216, 192, 112);
+            color: rgba(0, 0, 0, 0.603);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+    <script type="text/babel">
+
+        function Container(props) {
+            return <div className='container' {...props}></div>
+        }
+
+        function ParagCenter(props) {
+            return <p className='textcenter' {...props}></p>
+        }
+
+        const ParagDir = props => <p className='textdir' {...props}></p>
+
+
+        function Conteudo(props) {
+            return (
+                <Container id='main'>
+                    <ParagCenter> Componente personalizado </ParagCenter>
+                            <ParagDir> Este parágrafo deve estar alinhado a direita #1 </ParagDir>
+                            <ParagDir> Este parágrafo deve estar alinhado a direita #2 </ParagDir>
+                </Container>
+            )
+        }
+
+        ReactDOM.render(<Conteudo />, document.getElementById('root'))
+
+    </script>
+</body>
+
+</html>
